@@ -5,16 +5,14 @@ export default function Main() {
 
     const ingredientsList = ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
     
-    function handleSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
+    function handleSubmit(formData) {
         const newIngredient = formData.get("ingredient");
         setIngredients(prev => [...prev, newIngredient])
     };
 
     return(
         <main>
-            <form className='add-ingredient-form' onSubmit={handleSubmit}>
+            <form className='add-ingredient-form' action={handleSubmit}>
                 <input 
                     name='ingredient'
                     aria-label='Add ingredient' 
