@@ -6,7 +6,8 @@ export default function App() {
 
     return(
         <>
-            <Practice />
+            <Header />
+            <Main />
         </>
     )
 }

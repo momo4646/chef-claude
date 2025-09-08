@@ -17,12 +17,26 @@ export default function Main() {
                     name='ingredient'
                     aria-label='Add ingredient' 
                     placeholder='eg. oregano'
-                    type='text' />
+                    type='text' 
+                    required
+                    />
                 <button type='submit'>Add Ingredient</button>        
             </form>
-            <ul>
-                {ingredientsList}
-            </ul>
+            {(ingredientsList.length > 0) ?
+            <section>
+                <h2>Ingredients on hand: </h2>
+                <ul>{ingredientsList}</ul>
+            </section> : null
+            }
+            {(ingredientsList.length > 3) ?
+                <div className='get-a-recipe-container'>
+                    <div>
+                        <h3>Ready for a recipe? </h3>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button>Get a recipe</button>
+                </div> : null
+            }
         </main>
     );
 };
